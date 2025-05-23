@@ -1,0 +1,65 @@
+<!Doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="Style.css">
+		<style>
+		a {
+		  color: white;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div class="loginfield">
+			<h1>Registrera konto</h1>
+			<div class: "logincontent">
+				<form action="MainPage.html" id="myForm"method="Post">
+					<label for="user"><b>Email</b></label>
+					<br>
+					<input type="text" id="email" placeholder="Email" name="email" pattern="[a-zA-Z._%+\-]+@[a-zA-Z.\-]+\.[a-z]{2,}$" required>
+					<br>
+					<label for="psw"><b>Lösenord</b></label>
+					<br>
+					<input type="password" id="passw" placeholder="L&#246;senord" name="psw" pattern=".{6,}" title="Minst 6 tecken" required>
+					<br>
+					<label for="reppsw"><b>Upprepa lösenord</b></label>
+					<br>
+					<input type="password" id="reppassw" placeholder="L&#246;senord" name="reppsw" pattern=".{6,}" title="Minst 6 tecken" required>
+					<br>
+					<label for="quantity">Ange antal års erfarenhet</label>
+					<input type="number" id="exp" name="exp" min="0" max="50" required><br>
+					<br>
+					<input type="checkbox" id="terms" name="terms" value="yes" required><label for="vehicle1"> Jag accepterar användarvillkoren</label><br>
+					<br>
+					<button type="button" onclick="checkPass()">Registrera</button>
+					<br>
+					<br>
+					<p1>Har redan ett konto? <a href="login.html">Logga in</a></p1>
+					
+					<p id="demo"></p>
+					
+				</form>
+			<div>
+		</div>
+		<script>
+			function checkPass(){
+				const email = document.getElementById("email").value;
+				const pass1 = document.getElementById("passw").value;
+				const pass2 = document.getElementById("reppassw").value;
+				const form = document.getElementById("myForm");
+
+				if (pass1 === pass2){
+					localStorage.setItem("email", email);
+					localStorage.setItem("password", pass1);
+					document.getElementById("demo").innerHTML = "";
+					form.submit();
+				} 
+				else{
+					document.getElementById("demo").innerHTML = "Lösenorden matchar inte.";
+				}
+			}
+			
+		</script>
+	</body>
+</html>

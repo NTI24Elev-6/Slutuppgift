@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<!--Navbar-->
+			<div class="w3-top">
+			<div class="w3-bar w3-red w3-padding">
+				<a href="storeMain.html" class="w3-bar-item w3-left-align"><img src="Images/lstore.png" alt="Home" style="width:170px"></a>
+				<!--Large Screen-->
+				<div class="w3-hide-small">
+					<div class="w3-dropdown-hover w3-red">
+					  <button class="w3-button w3-xlarge w3-border">Genres</button>
+					  <div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<!--Dropdown links-->
+						<a href="FPS.html" class="w3-bar-item w3-button">Action</a>
+						<a href="sidescroller.html" class="w3-bar-item w3-button">Sidescroller</a>
+						<a href="adventure.html" class="w3-bar-item w3-button">Adventure</a>
+					  </div>
+					</div>
+					<a href="FAQ.html" class="w3-bar-item w3-button w3-xlarge w3-border w3-mobile">FAQ</a>
+					<a href="login2.html" class="w3-bar-item w3-button w3-right w3-xlarge w3-border w3-mobile">Login</a>
+					<a href="reg2.html" class="w3-bar-item w3-button w3-right w3-xlarge w3-border w3-mobile">Register</a>
+				</div>
+				<!--Small Screen-->
+				<div class="w3-hide-large w3-hide-medium">
+					<div class="w3-dropdown-hover w3-red w3-right"> <!--Dropdown decleration-->
+						<button class="w3-button w3-xlarge w3-border">≡</button> <!--Dropdown button-->
+						<div class="w3-dropdown-content w3-bar-block w3-card-4" style="right:0">  <!--Dropdown content-->
+							<!--Dropdown links-->
+							<a href="FPS.html" class="w3-bar-item w3-button">Action</a>
+							<a href="sidescroller.html" class="w3-bar-item w3-button">Sidescroller</a>
+							<a href="adventure.html" class="w3-bar-item w3-button">Adventure</a>
+							<a href="Faq.html" class="w3-bar-item w3-button">FAQ</a>
+							<a href="login2.html" class="w3-bar-item w3-button">Login</a>
+							<a href="reg2.html" class="w3-bar-item w3-button">Register</a>
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	
+	<div class="w3-padding" style="height:100px"></div>
+
+	<div class="w3-container w3-red w3-round-xxlarge w3-card-4" method="post" style="width:60%; margin-right:auto; margin-left:auto; text-align:center; padding-bottom:20px">
+	  <form id="myForm" class="w3-container" style="width:75%; margin-right:auto; margin-left:auto; margin-bottom:50px; text-align:center">
+		<h2>Log in</h2>
+		<label>Username</label>
+		<input type="text" class="w3-input" id="username" placeholder="Username" required>
+		<br>
+		<label>Password</label>
+		<input type="password" class="w3-input" id="password" placeholder="Password" required>
+		<br>
+		<button type="submit">Login</button>
+		
+		<p id="message"></p>
+	  </form>
+	</div>
+	
+	<div class="w3-padding" style="height:100px"></div>
+		
+	<!--Footer-->
+	<div class="w3-red w3-padding-24 w3-bar" style="height: 200px">
+		<a href="storeMain.html" class="w3-bar-item w3-left-align w3-mobile"><img src="Images/lstore.png" alt="Home" style="width:170px"></a>
+		<div class="w3-bar-item">
+			<p1><b>Contact us:</b><br>tel: 0762222222<br>email: linusivar.ehnsjoden@elev.ga.ntig.se<br>adress: Sysslomansgatan 18, Stockholm</p1>
+		</div>
+	</div>
+	
+  <script>
+	document.getElementById("myForm").addEventListener("submit", function(event){
+		event.preventDefault();
+
+		const username = document.getElementById("username").value;  // Hämtar information
+		const password = document.getElementById("password").value;
+
+		if (localStorage.getItem("username") !== username) {  // Kollar om användaren finns lagrad
+        document.getElementById("message").textContent = "User not found";
+		return
+		} 
+		if (localStorage.getItem("password") !== password) {  // Kollar om lösenorden matchar det lagrade
+        document.getElementById("message").textContent = "Incorrect password";
+		return
+		} 
+		else {
+
+        };
+		document.getElementById("message").textContent = "Welcome, " + username;  // Meddelar om lyckad inloggning.
+		document.getElementById('myForm').reset();
+		});
+  </script>
+
+</body>
+</html>
